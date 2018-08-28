@@ -6,13 +6,18 @@
 #include <iostream>
 #include <string>
 
+// Function prototype
+int getNumCount();
+
+/*********************************************************************
+**                       MAIN
+*********************************************************************/
 int main()
 {
-  int numCount, currentNum, min = 0, max = 0;
+  int numCount, currentNum, min, max;
 
   // Get numCount from user
-  std::cout << "How many integers would you like to enter?" << std::endl;
-  std::cin >> numCount;
+  numCount = getNumCount();
 
   // Get integers from user while tracking min and max integers
   std::cout << "Please enter " << numCount << " integers." << std::endl;
@@ -20,6 +25,12 @@ int main()
   for (int i = 0; i < numCount; i++)
   {
     std::cin >> currentNum;
+
+    if (i == 0)
+    {
+      max = currentNum;
+      min = currentNum;
+    }
 
     if (currentNum > max)  
     {
@@ -36,5 +47,16 @@ int main()
   // Display results
   std::cout << "min: " << min << std::endl;
   std::cout << "max: " << max << std::endl;
+}
 
+/*********************************************************************
+**                       getNumCount()
+** Description: Gets and returns numCount from user
+*********************************************************************/
+int getNumCount()
+{
+  int x;
+  std::cout << "How many integers would you like to enter?" << std::endl;
+  std::cin >> x;
+  return x;
 }
